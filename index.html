@@ -2,74 +2,87 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>HEHEHEHE</title>
+<title>Mission Proposal 🔥</title>
 
 <style>
 body {
     margin: 0;
     overflow: hidden;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff0080, #7928ca, #00c6ff);
-    background-size: 300% 300%;
-    animation: gradientMove 8s ease infinite;
+    background: linear-gradient(180deg, #000000, #1a1a1a);
+    color: white;
     text-align: center;
-    color: white;
 }
 
-@keyframes gradientMove {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
+/* Fire glow effect */
 h1 {
-    margin-top: 150px;
-    font-size: 48px;
-    letter-spacing: 1px;
-}
-
-button {
-    padding: 15px 40px;
-    font-size: 20px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    box-shadow: 0 0 15px rgba(255,255,255,0.5);
-    transition: 0.3s ease;
-}
-
-button:hover {
-    transform: scale(1.1);
-}
-
-#yes {
-    left: 30%;
-    top: 60%;
-}
-
-#no {
-    left: 65%;
-    top: 60%;
-}
-
-.heart {
-    position: absolute;
-    font-size: 26px;
-    animation: float 4s linear infinite;
-}
-
-@keyframes float {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-900px); opacity: 0; }
+    margin-top: 140px;
+    font-size: 42px;
+    color: #ffcc00;
+    text-shadow: 0 0 15px #ff9900, 0 0 30px #ff6600;
+    letter-spacing: 2px;
 }
 
 #typewriter {
-    font-size: 28px;
+    font-size: 24px;
     margin-top: 200px;
+    color: white;
+}
+
+/* Buttons */
+button {
+    padding: 15px 40px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.2s ease;
+}
+
+/* ACCEPT button */
+#yes {
+    background: linear-gradient(45deg, #ffcc00, #ff6600);
+    color: black;
+    box-shadow: 0 0 20px #ff9900;
+    left: 40%;
+    top: 60%;
+}
+
+/* DECLINE button */
+#no {
+    background: #2c2c2c;
+    color: white;
+    box-shadow: 0 0 20px #444;
+    left: 55%;
+    top: 60%;
+}
+
+/* Shake animation */
+@keyframes shake {
+  0% { transform: translate(2px, 2px); }
+  25% { transform: translate(-3px, -2px); }
+  50% { transform: translate(-5px, 0px); }
+  75% { transform: translate(5px, 3px); }
+  100% { transform: translate(2px, -2px); }
+}
+
+.shake {
+  animation: shake 0.3s;
+}
+
+/* Fire particles */
+.fire {
+    position: absolute;
+    font-size: 22px;
+    animation: rise 3s linear infinite;
+}
+
+@keyframes rise {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-800px); opacity: 0; }
 }
 </style>
 </head>
@@ -78,14 +91,14 @@ button:hover {
 
 <div id="typewriter"></div>
 
-<button id="yes" onclick="yesClick()" style="display:none;">YEAAAASSSSSS</button>
-<button id="no" onmouseover="moveNo()" style="display:none;">NOOOO WAAAAAYYYY</button>
+<button id="yes" onclick="yesClick()" style="display:none;">ACCEPT 🔥</button>
+<button id="no" onmouseover="moveNo()" style="display:none;">DECLINE ❌</button>
 
 <script>
 
-const hisName = "YASWANTHUUUUU";
+const hisName = "Rahul"; // CHANGE NAME
 
-const text = "Arey " + hisName + "... I have something special to ask you raa";
+const text = "Player " + hisName + "... Incoming Mission Request 🚨";
 let i = 0;
 
 function typeWriter() {
@@ -99,8 +112,8 @@ function typeWriter() {
 }
 
 function showQuestion() {
-    document.getElementById("typewriter").innerHTML = 
-    "Will you be mine forever??? PLEAAAAAAAASEEEEEEEEEEEE";
+    document.getElementById("typewriter").innerHTML =
+    "MISSION: Be My Forever Teammate 💛<br><br>Do you ACCEPT? 🎯";
     document.getElementById("yes").style.display = "block";
     document.getElementById("no").style.display = "block";
 }
@@ -111,31 +124,13 @@ function moveNo() {
     const y = Math.random() * (window.innerHeight - 120);
     btn.style.left = x + "px";
     btn.style.top = y + "px";
+
+    document.body.classList.add("shake");
+    setTimeout(() => {
+        document.body.classList.remove("shake");
+    }, 300);
 }
 
 function yesClick() {
-    document.body.innerHTML = "<h1>I THINK IM IN LOVE WITH YOU!!</h1>";
-    setInterval(createHeart, 150);
-}
-
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "🤍";
-    heart.style.left = Math.random() * window.innerWidth + "px";
-    heart.style.top = window.innerHeight + "px";
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 4000);
-}
-
-typeWriter();
-
-</script>
-
-</body>
-</html>
-
-
-
-
+    document.body.innerHTML =
+    "<h1 style='color:#f
