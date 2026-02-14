@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Mission Proposal</title>
+<title>HEHEHEHEH</title>
 
 <style>
 body {
@@ -52,6 +52,18 @@ button {
   75% { transform: translate(5px, 3px); }
   100% { transform: translate(2px, -2px); }
 }
+
+    .heart {
+    position: absolute;
+    color: red;
+    font-size: 24px;
+    animation: floatUp 4s linear forwards;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-800px); opacity: 0; }
+}
 </style>
 </head>
 
@@ -59,14 +71,14 @@ button {
 
 <div id="typewriter"></div>
 
-<button id="yes" onclick="yesClick()" style="display:none;">ACCEPT</button>
-<button id="no" onmouseover="moveNo()" style="display:none;">DECLINE</button>
+<button id="yes" onclick="yesClick()" style="display:none;">YESSSSS!!!!</button>
+<button id="no" onmouseover="moveNo()" style="display:none;">NOOOO WAYYYYY!!!</button>
 
 <script>
 
 const hisName = "YASWANTHUUUUUU";
 
-const text = "Player " + hisName + "... Mission Incoming!";
+const text = "AREY" + hisName + "... WILLL YOUUU BE MY VALENTINE??";
 let i = 0;
 
 function typeWriter() {
@@ -102,8 +114,23 @@ function moveNo() {
 function yesClick() {
     document.body.innerHTML =
     "<h1 style='color:orange;margin-top:200px;'>BOOYAH! 🔥</h1>" +
-    "<h2>You are now my permanent duo partner.</h2>";
+    "<h2>You are now my permanent duo partner ❤️</h2>";
+
+    setInterval(createHeart, 500);
 }
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.top = window.innerHeight + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 4000);
+}
+
 
 typeWriter();
 
@@ -111,3 +138,4 @@ typeWriter();
 
 </body>
 </html>
+
