@@ -1,6 +1,113 @@
 <!DOCTYPE html>
 <html>
-<body style="background:black;color:white;text-align:center;margin-top:200px;font-size:40px;">
-IT WORKS 😎🔥
+<head>
+<meta charset="UTF-8">
+<title>Mission Proposal</title>
+
+<style>
+body {
+    margin: 0;
+    background: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+#typewriter {
+    margin-top: 200px;
+    font-size: 28px;
+}
+
+button {
+    padding: 15px 35px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+}
+
+#yes {
+    background: orange;
+    color: black;
+    left: 40%;
+    top: 60%;
+}
+
+#no {
+    background: gray;
+    color: white;
+    left: 55%;
+    top: 60%;
+}
+
+.shake {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translate(2px, 2px); }
+  25% { transform: translate(-3px, -2px); }
+  50% { transform: translate(-5px, 0px); }
+  75% { transform: translate(5px, 3px); }
+  100% { transform: translate(2px, -2px); }
+}
+</style>
+</head>
+
+<body>
+
+<div id="typewriter"></div>
+
+<button id="yes" onclick="yesClick()" style="display:none;">ACCEPT</button>
+<button id="no" onmouseover="moveNo()" style="display:none;">DECLINE</button>
+
+<script>
+
+const hisName = "YASWANTHUUUUUU";
+
+const text = "Player " + hisName + "... Mission Incoming!";
+let i = 0;
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+    } else {
+        setTimeout(showQuestion, 800);
+    }
+}
+
+function showQuestion() {
+    document.getElementById("typewriter").innerHTML =
+    "MISSION: Be My Forever Teammate. Do you ACCEPT?";
+    document.getElementById("yes").style.display = "block";
+    document.getElementById("no").style.display = "block";
+}
+
+function moveNo() {
+    const btn = document.getElementById("no");
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 100);
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+
+    document.body.classList.add("shake");
+    setTimeout(() => {
+        document.body.classList.remove("shake");
+    }, 300);
+}
+
+function yesClick() {
+    document.body.innerHTML =
+    "<h1 style='color:orange;margin-top:200px;'>BOOYAH! 🔥</h1>" +
+    "<h2>You are now my permanent duo partner.</h2>";
+}
+
+typeWriter();
+
+</script>
+
 </body>
 </html>
