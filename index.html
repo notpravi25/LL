@@ -134,29 +134,33 @@ function yesClick() {
     let bar = document.getElementById("loadBar");
     let text = document.getElementById("loadingText");
 
-    let interval = setInterval(function() {
-        width += 2;
-        bar.style.width = width + "%";
+  let interval = setInterval(function() {
 
-        if (width == 30) text.innerHTML = "Authenticating feelings...";
-        if (width == 60) text.innerHTML = "Unlocking Girlfriend Premium Edition...";
-        if (width == 90) text.innerHTML = "Almost There...";
+    if (width < 70) {
+        width += 1;   // normal speed
+    } else if (width < 90) {
+        width += 0.5; // slower
+    } else {
+        width += 0.2; // suspense slow
+    }
 
-        if (width >= 100) {
-            clearInterval(interval);
-            showFinalScreen();
-        }
-    }, 60);
+    bar.style.width = width + "%";
+
+    if (width >= 100) {
+        clearInterval(interval);
+        showFinalScreen();
+    }
+
+}, 100);
 }
 function showFinalScreen() {
 
     document.body.innerHTML = `
         <div style="margin-top:150px;text-align:center;">
             <h1 style="color:red;font-size:60px;animation:pulse 1s infinite;">❤️</h1>
-            <h1 style="color:orange;">YOU UNLOCKED</h1>
-            <h2 style="color:white;">Girlfriend Premium Edition </h2>
-            <h3 style="color:red;margin-top:20px;">Lifetime Access Granted! 
-            Bare Herrr...</h3>
+            <h1 style="color:orange;">I THINK I'M IN LOVE WITH YOUU..</h1>
+            <h2 style="color:white;">YOU UNLOCKED UR Girlfriend Premium Edition </h2>
+            <h3 style="color:red;margin-top:20px;"> Bare Herrr...</h3>
         </div>
         <audio id="bgMusic" autoplay>
             <source src="tum_hi_ho.mp3" type="audio/mpeg">
@@ -186,6 +190,7 @@ typeWriter();
 
 </body>
 </html>
+
 
 
 
