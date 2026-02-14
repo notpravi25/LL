@@ -47,12 +47,12 @@ button:hover {
 }
 
 #yes {
-    left: 40%;
+    left: 30%;
     top: 60%;
 }
 
 #no {
-    left: 55%;
+    left: 65%;
     top: 60%;
 }
 
@@ -121,7 +121,7 @@ function yesClick() {
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("heart");
-    heart.innerHTML = "💜";
+    heart.innerHTML = "🤍";
     heart.style.left = Math.random() * window.innerWidth + "px";
     heart.style.top = window.innerHeight + "px";
     document.body.appendChild(heart);
@@ -135,6 +135,7 @@ typeWriter();
 
 </body>
 </html>
+
 
 
 
